@@ -6,5 +6,6 @@ public class TestGit {
         System.out.println("hot-fix");
         System.out.println("hot-fix1");
         System.out.println("master1");
+        System.out.println("提交本地库");
     }
 }
