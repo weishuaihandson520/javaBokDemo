@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sangeng.mapper.BokComments">
+
+
+
+    <resultMap id="CommentsMapper" type="Comment">
+        <id column="c_id" property="c_id"></id>
+        <result column="b_id" property="b_id"></result>
+
+        <result column="u_id" property="u_id"></result>
+
+        <result column="content" property="content"></result>
+
+        <result column="createCommentTime" property="createCommentTime" ></result>
+
+        <association property="user" javaType="User">
+            <id column="id" property="id"></id>
+            <result column="avatar" property="avatar"></result>
+            <result column="nick_name" property="nickName"></result>
+        </association>
+    </resultMap>
+    <select id="selectComments" resultMap="CommentsMapper">
+        select c.c_id, c.b_id,c.content,c.createCommentTime, u.id,u.avatar,u.nick_name from sys_bok_comments c join sys_user u on c.u_id=u.id
+                                                                                      where c.b_id=#{b_id}
+
+    </select>
+
+
+
+</mapper>

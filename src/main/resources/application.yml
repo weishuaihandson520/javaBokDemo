@@ -1,0 +1,22 @@
+spring:
+  # 配置数据源信息,一定要有代码的缩进
+  datasource:
+    # 配置数据源类型
+    type: com.zaxxer.hikari.HikariDataSource
+    # 配置连接数据库信息
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_security?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+# 配置MyBatis日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #配置mybatis-plus的全局配置
+  global-config:
+    db-config:
+      #配置主键生成策略(自动递增)
+      id-type: auto
+      #设置Mapper映射文件的类型别名
+  type-aliases-package: com.sangeng.domain
+

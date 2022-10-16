@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sangeng.mapper.BookGoods">
+
+
+    <resultMap id="goodsUserMapper" type="goodsToUser">
+
+        <association property="user" javaType="user">
+            <id column="id" property="id"></id>
+            <result column="avatar" property="avatar"></result>
+        </association>
+
+
+    </resultMap>
+    <select id="goodsUserByUid" resultMap="goodsUserMapper">
+        select u.avatar from sys_bok_goods g  join sys_user u on g.u_id=u.id where g.b_id=#{b_id}
+
+    </select>
+
+</mapper>
